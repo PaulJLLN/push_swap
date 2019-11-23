@@ -6,15 +6,15 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:13:09 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 15:36:33 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/13 11:03:45 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(t_stack *stack, int idx_1, int idx_2, t_list **array)
+void		ft_swap(t_stack *stack, int idx_1, int idx_2, t_list **array)
 {
-	int	tmp;
+	int		tmp;
 
 	if (stack->n_elem < 2)
 		return ;
@@ -29,7 +29,7 @@ void	ft_swap(t_stack *stack, int idx_1, int idx_2, t_list **array)
 
 static void	ft_slide(t_stack *stack, int direction)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (!stack || !stack->stack)
@@ -54,7 +54,7 @@ static void	ft_slide(t_stack *stack, int direction)
 	}
 }
 
-void	ft_push(t_stack *a, t_stack *b, t_list **array)
+void		ft_push(t_stack *a, t_stack *b, t_list **array)
 {
 	if (a->n_elem == 0)
 		return ;
@@ -70,9 +70,9 @@ void	ft_push(t_stack *a, t_stack *b, t_list **array)
 		ft_lst_push_back(array, "pa", 2);
 }
 
-void	ft_rotate(t_stack *stack, int direction, t_list **array)
+void		ft_rotate(t_stack *stack, int direction, t_list **array)
 {
-	int	tmp;
+	int		tmp;
 
 	if (direction == UP)
 	{

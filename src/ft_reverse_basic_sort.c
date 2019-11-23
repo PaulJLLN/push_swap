@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 19:51:57 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 10:43:24 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/16 18:05:52 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ void	ft_reverse_five_elem_sort(t_stack *a, t_stack *b, t_list **array)
 	}
 	else if (b->stack[4] == b->max)
 		ft_rotate(b, DOWN, array);
-	ft_push(b,a, array);
+	ft_push(b, a, array);
 	ft_set_stat(b, 4);
 	ft_reverse_four_elem_sort(a, b, array);
-	ft_push(a,b, array);
+	ft_push(a, b, array);
 }
 
 void	ft_reverse_basic_sort(t_stack *a, t_stack *b, t_list **array)

@@ -6,12 +6,11 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 18:24:57 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/26 17:41:07 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:34:28 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <stdio.h>
 
 void		ft_lst_push_back(t_list **begin_lst,
 char *content, size_t content_size)

@@ -6,17 +6,11 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:01:06 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 15:34:36 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/23 12:30:53 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-static int			ft_error()
-{
-	ft_putendl_fd("Error", 2);
-	return (0);
-}
 
 void		ft_init_stack(t_stack *stack, char c)
 {
@@ -25,12 +19,12 @@ void		ft_init_stack(t_stack *stack, char c)
 	stack->no = c;
 }
 
-int main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	char	**tmp;
 	t_list	*list;
 	t_stack	a;
-	t_stack b;
+	t_stack	b;
 	int		i;
 
 	i = 0;

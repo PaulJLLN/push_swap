@@ -6,13 +6,13 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 09:31:30 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 10:41:02 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/19 09:53:05 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void		ft_dispatch_instruction(char *str, t_stack *a, t_stack *b)
+static void	ft_dispatch_instruction(char *str, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(str, "pa") == 0)
 		ft_push(b, a, NULL);
@@ -32,22 +32,26 @@ static void		ft_dispatch_instruction(char *str, t_stack *a, t_stack *b)
 		ft_rotate(b, DOWN, NULL);
 }
 
-void		ft_apply_instruction(t_stack *a, t_list *list)
+void		ft_apply_instruction(t_stack *a, t_stack *b, t_list *list)
 {
-	t_stack	b;
 	int		i;
 
 	i = 0;
-	if (!(b.stack = (long *)malloc(sizeof(long) * a->n_elem)))
+	if (!(b->stack = (long *)malloc(sizeof(long) * a->n_elem)))
 		return ;
-	b.no = 'B';
-	b.n_elem = 0;
+	b->no = 'B';
+	b->n_elem = 0;
 	while (i < a->n_elem)
-		b.stack[i++] = NULL_VALUE;
+		b->stack[i++] = NULL_VALUE;
+	if (list && list->content == NULL)
+	{
+		ft_n_tab_del(b->stack, b->n_elem);
+		return ;
+	}
 	while (list != NULL)
 	{
-		ft_dispatch_instruction(list->content, a, &b);
+		ft_dispatch_instruction(list->content, a, b);
 		list = list->next;
 	}
-	ft_n_tab_del(b.stack, b.n_elem);
+	ft_n_tab_del(b->stack, b->n_elem);
 }

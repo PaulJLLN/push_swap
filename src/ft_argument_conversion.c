@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 12:44:41 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/30 22:31:04 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/13 10:43:59 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void		ft_n_tab_init(long *n_tab, size_t len)
 {
-	size_t	i;
+	size_t		i;
 
 	i = 0;
 	while (i < len)
@@ -24,11 +24,11 @@ static void		ft_n_tab_init(long *n_tab, size_t len)
 	}
 }
 
-static int	ft_duplicate(long *n_tab, int len)
+static int		ft_duplicate(long *n_tab, int len)
 {
-	int	i;
-	int	j;
-	long	tmp;
+	int			i;
+	int			j;
+	long		tmp;
 
 	i = 0;
 	while (i < len)
@@ -46,11 +46,11 @@ static int	ft_duplicate(long *n_tab, int len)
 	return (TRUE);
 }
 
-long	*ft_argument_conversion(char **array)
+long			*ft_argument_conversion(char **array)
 {
 	long		*n_tab;
-	size_t	i;
-	int		len;
+	size_t		i;
+	int			len;
 
 	i = 0;
 	n_tab = NULL;

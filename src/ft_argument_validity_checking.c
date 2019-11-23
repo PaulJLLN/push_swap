@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 10:31:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/30 22:31:12 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/23 19:04:35 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ int				ft_number_len_str(char *str)
 	return (i);
 }
 
-static long		ft_int_validity(char **s, int offset)
+static long		ft_int_validity(char **s, int offset, int sign)
 {
 	char		*s_ref;
 	char		*str;
 
 	str = *s + offset;
-	if (str[0] == '-')
-		s_ref = "-2147483648";
+	if (sign == -1)
+		s_ref = "2147483648";
 	else
 		s_ref = "2147483647";
 	if (ft_number_len_str(str) < ft_strlen(s_ref))
 	{
-		*s = str + ft_number_len_str(str) - 1;
+		*s = str + ft_number_len_str(str);
 		return (VALID_PARSE_LONG);
 	}
 	while (*str)
@@ -48,7 +48,7 @@ static long		ft_int_validity(char **s, int offset)
 		str += 1;
 		s_ref += 1;
 	}
-	*s = str;
+	*s = str + 1;
 	return (VALID_PARSE_LONG);
 }
 
@@ -62,18 +62,22 @@ static long		ft_auth_char(char c)
 static long		ft_str_validity_checking(char *str)
 {
 	size_t		idx;
+	int			sign;
 
 	idx = 0;
+	sign = 1;
 	while (str[idx] != '\0')
 	{
-		if (ft_auth_char(str[idx]) == ERROR_PARSE_LONG)
-			return (ERROR_PARSE_LONG);
-		if ((str[idx] == '+' || str[idx] == '-') &&
-		ft_is_number(str[idx + 1]) == ERROR_PARSE_LONG)
-			return (ERROR_PARSE_LONG);
 		if (str[idx] == '+')
 			idx += 1;
-		if (ft_int_validity(&str, idx) == ERROR_PARSE_LONG)
+		else if (str[idx] == '-')
+			sign = -1;
+		idx += 1;
+		while (str[idx] == '0')
+			idx += 1;
+		if (ft_int_validity(&str, idx, sign) == ERROR_PARSE_LONG)
+			return (ERROR_PARSE_LONG);
+		if (str[0] != 0 && ft_is_whitespace(str[0] == FALSE))
 			return (ERROR_PARSE_LONG);
 		idx += 1;
 	}

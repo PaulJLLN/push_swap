@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:00:10 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 15:22:50 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/15 21:37:44 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,4 +141,5 @@ long				*ft_tabdup(long *tab, int len);
 int					ft_digit(long nb);
 void				ft_print_char(char c, int len);
 char				*ft_strpdupf(char *src, char c, char **rest);
+void				ft_lst_free(t_list **head);
 #endif

@@ -6,13 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 17:07:03 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 09:51:48 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/23 17:50:45 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 int			ft_word_counter(char *str)
 {
@@ -21,7 +20,7 @@ int			ft_word_counter(char *str)
 	word = 0;
 	if (!str)
 		return (0);
-	while (*str)
+	while (*str != 0)
 	{
 		if (ft_is_whitespace(*str) == ERROR_PARSE_LONG)
 		{
@@ -30,8 +29,10 @@ int			ft_word_counter(char *str)
 				str += 1;
 		}
 		else if (ft_is_whitespace(*str) == VALID_PARSE_LONG)
-			while (*str && ft_is_whitespace(*str) == VALID_PARSE_LONG)
+		{
+			while (*str != 0 && ft_is_whitespace(*str) == VALID_PARSE_LONG)
 				str += 1;
+		}
 	}
 	return (word);
 }
@@ -84,6 +85,8 @@ char		**ft_split_whitespace(char *str)
 
 	array = NULL;
 	word = ft_word_counter(str);
+	if (word == 0)
+		return (NULL);
 	if (word && !(array = ft_array_alloc(word + 1)))
 		return (NULL);
 	array[word] = NULL;

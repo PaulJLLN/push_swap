@@ -6,14 +6,13 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 20:50:07 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/30 17:13:15 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:33:49 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include <stdarg.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 char	**ft_fill_array(size_t len, ...)
 {

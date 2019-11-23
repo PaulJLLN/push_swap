@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 08:59:55 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/27 09:06:08 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/13 19:08:42 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ char	*ft_strcdup(char *str, int c)
 		s[i] = str[i];
 		i += 1;
 	}
+	s[i] = 0;
 	return (s);
 }

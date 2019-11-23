@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:26:29 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 13:04:50 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:36:54 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 # include "../libft/includes/libft.h"
 # include "./macro.h"
 # include "./structure.h"

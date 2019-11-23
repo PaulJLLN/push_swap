@@ -96,6 +96,7 @@ SRC =	ft_add_array.c \
 		ft_digit.c \
 		ft_print_char.c \
 		ft_strpdupf.c \
+		ft_lst_free.c \
 		
 OBJ = $(SRC:.c=.o)
 PATH_SRC = $(addprefix src/, $(SRC))

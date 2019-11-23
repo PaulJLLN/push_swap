@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 14:16:20 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 15:23:30 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:36:17 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,20 @@ char	*ft_strpdupf(char *src, char c, char **rest)
 	int		i;
 
 	i = 0;
-	result = NULL;
-	if (!src || !rest)
-		return (NULL);
-	if (!(result = (char *)malloc(sizeof(char) * (ft_strclen(src, c) + 1))))
-		return (NULL);
+	result = ft_strcdup(src, c);
 	while (src[i] != 0 && src[i] != c)
-	{
-		result[i] = src[i];
 		i += 1;
+	if (src[i] != 0 && src[i + 1] == 0)
+	{
+		free(*rest);
+		*rest = NULL;
 	}
-	result[i] = 0;
-	if (src[i] != 0)
+	else if (src[i] != 0)
 	{
 		if (!(tmp = ft_strdup(src + i + 1)))
 			return (NULL);
 		free(*rest);
 		*rest = tmp;
 	}
-	else
-		*rest = NULL;
-	if (src[i] != 0 && src[i + 1] == 0)
-		*rest = NULL;
 	return (result);
 }

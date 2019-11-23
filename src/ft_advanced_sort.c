@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 19:33:38 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 10:36:45 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/13 10:43:22 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ void	ft_advanced_three_elem_sort(t_stack *a, t_stack *b, t_list **list)
 	{
 		if (a->stack[1] == a->max)
 		{
-			ft_push(a,b, list);
+			ft_push(a, b, list);
 			ft_swap(a, 0, 1, list);
-			ft_push(b,a, list);
+			ft_push(b, a, list);
 		}
 	}
-	else if (a->stack[0] == a->max || (a->stack[0] != a->max && a->stack[0] == a->min))
+	else if (a->stack[0] == a->max
+	|| (a->stack[0] != a->max && a->stack[0] == a->min))
 	{
 		ft_swap(a, 0, 1, list);
 		ft_advanced_three_elem_sort(a, b, list);
@@ -32,9 +33,9 @@ void	ft_advanced_three_elem_sort(t_stack *a, t_stack *b, t_list **list)
 	{
 		if (a->stack[1] == a->max)
 		{
-			ft_push(a,b,list);
+			ft_push(a, b, list);
 			ft_swap(a, 0, 1, list);
-			ft_push(b,a, list);
+			ft_push(b, a, list);
 		}
 		ft_swap(a, 0, 1, list);
 	}

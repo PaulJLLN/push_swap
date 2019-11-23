@@ -6,12 +6,11 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/19 16:57:11 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/26 17:40:23 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:34:51 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <stdio.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

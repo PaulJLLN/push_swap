@@ -6,13 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 13:06:57 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/30 17:14:36 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:34:19 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 char		**ft_list_to_array(t_list *list)
 {

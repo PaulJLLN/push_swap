@@ -23,6 +23,7 @@ SRC =	ft_advanced_sort.c \
 		ft_reverse_basic_sort.c \
 		ft_set_stat.c \
 		ft_sorted_list_checking.c \
+		ft_print.c \
 
 CHECKER_SRC = ft_checker.c
 CHECKER_OBJ = $(CHECKER_SRC:.c=.o)
@@ -41,13 +42,15 @@ PATH_CHECKER_OBJ = $(addprefix obj/, $(CHECKER_OBJ))
 PATH_PUSH_SWAP_SRC = $(addprefix src/, $(PUSH_SWAP_SRC))
 PATH_PUSH_SWAP_OBJ = $(addprefix obj/, $(PUSH_SWAP_OBJ))
 
-all: libft_comp comp
+all: libft_comp $(CHECKER) $(PUSH_SWAP)
 
 libft_comp:
 	make -C libft
 
-comp: $(PATH_OBJ) $(PATH_CHECKER_OBJ) $(PATH_PUSH_SWAP_OBJ)
+$(CHECKER) : $(PATH_OBJ) $(PATH_CHECKER_OBJ) 
 	$(CC) $(CFLAG) -o $(CHECKER) $(PATH_OBJ) $(PATH_CHECKER_OBJ) $(LIB)
+
+$(PUSH_SWAP) : $(PATH_OBJ) $(PATH_PUSH_SWAP_OBJ)
 	$(CC) $(CFLAG) -o $(PUSH_SWAP) $(PATH_OBJ) $(PATH_PUSH_SWAP_OBJ) $(LIB)
 
 $(addprefix obj/, %.o): $(addprefix src/, %.c)

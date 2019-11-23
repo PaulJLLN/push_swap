@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 15:47:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/11 10:05:39 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/13 12:31:26 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ void	ft_set_stat(t_stack *stack, size_t len)
 	tmp = ft_tabdup(stack->stack, len);
 	ft_bubble_sort(tmp, len);
 	stack->min = tmp[0];
-	stack->min_sup = tmp[1];
 	stack->max = tmp[len - 1];
-	stack->max_1 = tmp[len - 2];
 	ft_n_tab_del(tmp, len);
 }

@@ -6,16 +6,16 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 17:24:06 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/30 17:12:57 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/18 09:33:39 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 void	ft_del_array(char **array)
 {
-	int i;
+	unsigned int	i;
 
 	i = 0;
 	while (array[i] != NULL)
@@ -23,4 +23,5 @@ void	ft_del_array(char **array)
 		ft_strdel(array + i);
 		i += 1;
 	}
+	free(array);
 }

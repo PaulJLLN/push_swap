@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 17:28:04 by pauljull          #+#    #+#             */
-/*   Updated: 2019/10/26 22:02:03 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/13 11:06:34 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/uio.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 t_list	*fd_management(t_list *lst, int fd)
@@ -105,6 +104,5 @@ int		get_next_line(const int fd, char **line)
 		fill_line(buff_lst, line);
 		return (1);
 	}
-	
 	return (ft_read(buff_lst, line, fd));
 }
