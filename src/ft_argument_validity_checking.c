@@ -6,11 +6,18 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 10:31:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/23 19:04:35 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/25 12:24:12 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static long		ft_auth_char(char c)
+{
+	if (c != '+' && c != '-' && ft_is_number(c) == L_FALSE)
+		return (L_FALSE);
+	return (L_TRUE);
+}
 
 int				ft_number_len_str(char *str)
 {
@@ -19,71 +26,75 @@ int				ft_number_len_str(char *str)
 	i = 0;
 	if (str[i] == '-')
 		i += 1;
-	while (ft_is_number(str[i]) == VALID_PARSE_LONG)
+	while (ft_is_number(str[i]) == L_TRUE)
 		i += 1;
 	return (i);
 }
 
-static long		ft_int_validity(char **s, int offset, int sign)
+size_t					ft_number_move_str(char **str)
 {
-	char		*s_ref;
-	char		*str;
+	char				*ref_s;
 
-	str = *s + offset;
-	if (sign == -1)
-		s_ref = "2147483648";
-	else
-		s_ref = "2147483647";
-	if (ft_number_len_str(str) < ft_strlen(s_ref))
-	{
-		*s = str + ft_number_len_str(str);
-		return (VALID_PARSE_LONG);
-	}
-	while (*str)
-	{
-		if (*str > *s_ref)
-			return (ERROR_PARSE_LONG);
-		else if (*str < *s_ref)
-			return (VALID_PARSE_LONG);
-		str += 1;
-		s_ref += 1;
-	}
-	*s = str + 1;
-	return (VALID_PARSE_LONG);
+	ref_s = *str;
+	while (ft_is_number(*ref_s) == L_TRUE)
+		ref_s += 1;
+	*str = ref_s;
+	return (TRUE);
 }
 
-static long		ft_auth_char(char c)
+static char				*ft_preparsing(char **str, char **ref_s)
 {
-	if (c != '+' && c != '-' && ft_is_number(c) == ERROR_PARSE_LONG)
-		return (ERROR_PARSE_LONG);
-	return (VALID_PARSE_LONG);
+	char				*tmp;
+	int					sign;
+
+	sign = 1;
+	tmp = *str;
+	if (*tmp == '-')
+		sign = -1;
+	if (*tmp == '-' || *tmp == '+')
+		tmp += 1;
+	while (*tmp == '0')
+		tmp += 1;
+	*ref_s = tmp;
+	*str = tmp;
+	if (sign == -1)
+		return ("2147483648");
+	return ("2147483647");
+}
+
+static t_bool			ft_pattern_recognition(char **str)
+{
+	char				*ref_s;
+	char				*xtrem_s;
+
+	if ((xtrem_s = ft_preparsing(str, &ref_s)) == NULL)
+		return (FALSE);
+	if (ft_number_len_str(ref_s) > ft_number_len_str(xtrem_s))
+		return (FALSE);
+	if (ft_number_len_str(ref_s) < ft_number_len_str(xtrem_s))
+		return (ft_number_move_str(str));
+	while (ft_is_number(*ref_s) == TRUE)
+		if (*(ref_s++) > *(xtrem_s++))
+			return (FALSE);
+	if (ft_is_whitespace(*ref_s) == FALSE && *ref_s != 0)
+		return (FALSE);
+	*str = ref_s;
+	return (TRUE);
 }
 
 static long		ft_str_validity_checking(char *str)
 {
-	size_t		idx;
-	int			sign;
-
-	idx = 0;
-	sign = 1;
-	while (str[idx] != '\0')
+	while (*str)
 	{
-		if (str[idx] == '+')
-			idx += 1;
-		else if (str[idx] == '-')
-			sign = -1;
-		idx += 1;
-		while (str[idx] == '0')
-			idx += 1;
-		if (ft_int_validity(&str, idx, sign) == ERROR_PARSE_LONG)
-			return (ERROR_PARSE_LONG);
-		if (str[0] != 0 && ft_is_whitespace(str[0] == FALSE))
-			return (ERROR_PARSE_LONG);
-		idx += 1;
+		while (ft_is_whitespace(*str) == L_TRUE)
+			str += 1;
+		if (ft_auth_char(*str) == L_FALSE)
+			return (L_FALSE);
+		else
+			if (ft_pattern_recognition(&str) == FALSE)
+				return (L_FALSE);
 	}
-	if (idx == 0)
-		return (ERROR_PARSE_LONG);
-	return (VALID_PARSE_LONG);
+	return (L_TRUE);
 }
 
 char			**ft_argument_validity_checking(char **array)
@@ -95,8 +106,11 @@ char			**ft_argument_validity_checking(char **array)
 		return (NULL);
 	while (array[idx] != NULL)
 	{
-		if (ft_str_validity_checking(array[idx]) == ERROR_PARSE_LONG)
+		if (ft_str_validity_checking(array[idx]) == L_FALSE)
+		{
+			ft_putendl(array[idx]);
 			return (NULL);
+		}
 		idx += 1;
 	}
 	return (array);

@@ -19,7 +19,7 @@ void	ft_skip_whitespace(char **s)
 	if (!s || !*s)
 		return ;
 	str = *s;
-	while (ft_is_whitespace(*str) == VALID_PARSE_LONG)
+	while (ft_is_whitespace(*str) == L_TRUE)
 		str += 1;
 	*s = str;
 }

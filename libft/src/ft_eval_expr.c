@@ -18,19 +18,19 @@ long			ft_auth_char(char c)
 	&& c != '\t' && c != '\n' && c != '\r' && c != '\v' &&
 	c != '+' && c != '-' && c != '*' && c != '/' && c != '%'
 	&& c != ')' && c != '(')
-		return (ERROR_PARSE_LONG);
-	return (VALID_PARSE_LONG);
+		return (L_FALSE);
+	return (L_TRUE);
 }
 
 long			ft_integer_value_checker(t_arithm arithm)
 {
 	if (arithm.first_operand > INT_MAX || arithm.first_operand < INT_MIN)
-		return (ERROR_PARSE_LONG);
+		return (L_FALSE);
 	if (arithm.second_operand > INT_MAX || arithm.second_operand < INT_MIN)
-		return (ERROR_PARSE_LONG);
+		return (L_FALSE);
 	if (arithm.value > INT_MAX || arithm.value < INT_MIN)
-		return (ERROR_PARSE_LONG);
-	return (VALID_PARSE_LONG);
+		return (L_FALSE);
+	return (L_TRUE);
 }
 
 void			ft_init_func_tab(t_func_tab func_tab[127])
@@ -59,8 +59,8 @@ void			ft_init_func_tab(t_func_tab func_tab[127])
 long			ft_expr_format_check(char *s)
 {
 	ft_skip_whitespace(&s);
-	if (*s != 0 && ft_auth_char(*s) == ERROR_PARSE_LONG)
-		return (ERROR_PARSE_LONG);
+	if (*s != 0 && ft_auth_char(*s) == L_FALSE)
+		return (L_FALSE);
 	if (*s != 0 && *s == '(' && (ft_is_whitespace(s[1]) ||
 	ft_is_number(s[1]) || s[1] == '('))
 		return (ft_expr_format_check(s + 1));
@@ -71,8 +71,8 @@ long			ft_expr_format_check(char *s)
 	ft_is_number(s[1]) || s[1] == '('))
 		return (ft_expr_format_check(s + 1));
 	if (*s != 0 && *s != ')')
-		return (ERROR_PARSE_LONG);
-	return (VALID_PARSE_LONG);
+		return (L_FALSE);
+	return (L_TRUE);
 }
 
 long			ft_eval_expr(char *s)

@@ -16,6 +16,6 @@ long	ft_is_whitespace(char c)
 {
 	if (c == ' ' || c == '\f' || c == '\t'
 	|| c == '\n' || c == '\r' || c == '\v')
-		return (VALID_PARSE_LONG);
-	return (ERROR_PARSE_LONG);
+		return (L_TRUE);
+	return (L_FALSE);
 }

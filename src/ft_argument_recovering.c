@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 15:23:00 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/23 18:27:23 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/25 11:21:09 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ static int	ft_parse_array(char *str)
 		return (0);
 	while (*str)
 	{
-		if (*str && ft_is_whitespace(*str) == ERROR_PARSE_LONG)
+		if (*str && ft_is_whitespace(*str) == L_FALSE)
 		{
 			arg += 1;
-			while (*str && ft_is_whitespace(*str) == ERROR_PARSE_LONG)
+			while (*str && ft_is_whitespace(*str) == L_FALSE)
 				str += 1;
 		}
-		else if (*str && ft_is_whitespace(*str) == VALID_PARSE_LONG)
-			while (*str && ft_is_whitespace(*str) == VALID_PARSE_LONG)
+		else if (*str && ft_is_whitespace(*str) == L_TRUE)
+			while (*str && ft_is_whitespace(*str) == L_TRUE)
 				str += 1;
 	}
 	return (arg);
@@ -57,7 +57,7 @@ char		**ft_argument_recovering(char **av, size_t len)
 	if (len == 0)
 		return (NULL);
 	array = NULL;
-	if ((arg = ft_check_arg(av, len)) == ERROR_PARSE_LONG)
+	if ((arg = ft_check_arg(av, len)) == L_FALSE)
 		return (NULL);
 	if (!(array = ft_array_alloc(arg)))
 		return (NULL);

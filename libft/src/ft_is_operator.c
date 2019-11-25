@@ -15,6 +15,6 @@
 long		ft_is_operator(char c)
 {
 	if (c == '+' || c == '-' || c == '*' || c == '/' || c == '%')
-		return (VALID_PARSE_LONG);
-	return (ERROR_PARSE_LONG);
+		return (L_TRUE);
+	return (L_FALSE);
 }

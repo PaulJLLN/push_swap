@@ -15,12 +15,12 @@
 long	ft_array_elem_cmp(char *str, char **array)
 {
 	if (!str || !array)
-		return (ERROR_PARSE_LONG);
+		return (L_FALSE);
 	while (*array != NULL)
 	{
 		if (ft_strcmp(str, *array) == FALSE)
-			return (VALID_PARSE_LONG);
+			return (L_TRUE);
 		array += 1;
 	}
-	return (ERROR_PARSE_LONG);
+	return (L_FALSE);
 }

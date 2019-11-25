@@ -41,10 +41,10 @@ long		ft_instruction_validity_checking(t_list *list)
 	while (list != NULL)
 	{
 		if (ft_array_elem_cmp(list->content, instruction_set)
-		== ERROR_PARSE_LONG)
-			return (ERROR_PARSE_LONG);
+		== L_FALSE)
+			return (L_FALSE);
 		list = list->next;
 	}
 	ft_del_array(instruction_set);
-	return (VALID_PARSE_LONG);
+	return (L_TRUE);
 }

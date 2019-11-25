@@ -32,11 +32,11 @@ long		ft_read(t_list **list, int fd)
 		}
 	}
 	if (tmp == NULL)
-		return (VALID_PARSE_LONG);
+		return (L_TRUE);
 	else
-		return (ERROR_PARSE_LONG);
+		return (L_FALSE);
 	free(tmp);
-	return (VALID_PARSE_LONG);
+	return (L_TRUE);
 }
 
 t_list		*ft_instruction_recovering(int fd)
@@ -44,11 +44,11 @@ t_list		*ft_instruction_recovering(int fd)
 	t_list	*list;
 
 	list = NULL;
-	if (ft_read(&list, fd) == ERROR_PARSE_LONG)
+	if (ft_read(&list, fd) == L_FALSE)
 		return (NULL);
 	if (!list)
 		ft_lst_push_back(&list, "", 1);
-	else if (ft_instruction_validity_checking(list) == ERROR_PARSE_LONG)
+	else if (ft_instruction_validity_checking(list) == L_FALSE)
 		return (NULL);
 	return (list);
 }

@@ -15,6 +15,6 @@
 long	ft_is_number(char c)
 {
 	if (c >= '0' && c <= '9')
-		return (VALID_PARSE_LONG);
-	return (ERROR_PARSE_LONG);
+		return (L_TRUE);
+	return (L_FALSE);
 }

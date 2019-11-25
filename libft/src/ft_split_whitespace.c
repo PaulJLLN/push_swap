@@ -22,15 +22,15 @@ int			ft_word_counter(char *str)
 		return (0);
 	while (*str != 0)
 	{
-		if (ft_is_whitespace(*str) == ERROR_PARSE_LONG)
+		if (ft_is_whitespace(*str) == L_FALSE)
 		{
 			word += 1;
-			while (*str && ft_is_whitespace(*str) == ERROR_PARSE_LONG)
+			while (*str && ft_is_whitespace(*str) == L_FALSE)
 				str += 1;
 		}
-		else if (ft_is_whitespace(*str) == VALID_PARSE_LONG)
+		else if (ft_is_whitespace(*str) == L_TRUE)
 		{
-			while (*str != 0 && ft_is_whitespace(*str) == VALID_PARSE_LONG)
+			while (*str != 0 && ft_is_whitespace(*str) == L_TRUE)
 				str += 1;
 		}
 	}
@@ -42,7 +42,7 @@ int			ft_letter_counter(char *str)
 	int		letter;
 
 	letter = 0;
-	while (*str && ft_is_whitespace(*str) == ERROR_PARSE_LONG)
+	while (*str && ft_is_whitespace(*str) == L_FALSE)
 	{
 		letter += 1;
 		str += 1;
@@ -60,9 +60,9 @@ void		ft_sub_array_alloc(char **array, char *str)
 	j = 0;
 	while (*str)
 	{
-		while (*str && ft_is_whitespace(*str) == VALID_PARSE_LONG)
+		while (*str && ft_is_whitespace(*str) == L_TRUE)
 			str += 1;
-		if (*str && ft_is_whitespace(*str) == ERROR_PARSE_LONG)
+		if (*str && ft_is_whitespace(*str) == L_FALSE)
 		{
 			letter = ft_letter_counter(str);
 			if (letter && !(array[j] =
