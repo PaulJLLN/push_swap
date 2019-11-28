@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   macro.h                                            :+:      :+:    :+:   */
+/*   ft_number_len_str.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/17 13:36:27 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/28 16:26:12 by pauljull         ###   ########.fr       */
+/*   Created: 2019/11/28 16:27:34 by pauljull          #+#    #+#             */
+/*   Updated: 2019/11/28 16:43:55 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MACRO_H
+#include "../includes/libft.h"
 
-# define MACRO_H
+int				ft_number_len_str(char *str)
+{
+	int			i;
 
-# define L_FALSE (long)-9223372036854775806
-# define L_TRUE (long)9223372036854775806
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
-# define TRUE 1
-# define FALSE 0
-# define DOWN 2
-# define UP 3
-# define NULL_VALUE -2147483649
-# define BUFF_SIZE 5
-
-typedef int	t_bool;
-
-#endif
+	i = 0;
+	if (str[i] == '-')
+		i += 1;
+	while (ft_is_number(str[i]) == L_TRUE)
+		i += 1;
+	return (i);
+}

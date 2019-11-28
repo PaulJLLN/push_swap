@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 10:31:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/26 09:55:19 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/28 16:54:57 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,10 @@ static long		ft_auth_char(char c)
 	return (L_TRUE);
 }
 
-int				ft_number_len_str(char *str)
+static char		*ft_preparsing(char **str, char **ref_s)
 {
-	int			i;
-
-	i = 0;
-	ft_putendl(str);
-	if (str[i] == '-')
-		i += 1;
-	while (ft_is_number(str[i]) == L_TRUE)
-		i += 1;
-	return (i);
-}
-
-size_t					ft_number_move_str(char **str)
-{
-	char				*ref_s;
-
-	ref_s = *str;
-	while (ft_is_number(*ref_s) == L_TRUE)
-		ref_s += 1;
-	*str = ref_s;
-	return (TRUE);
-}
-
-static char				*ft_preparsing(char **str, char **ref_s)
-{
-	char				*tmp;
-	int					sign;
+	char	*tmp;
+	int		sign;
 
 	sign = 1;
 	tmp = *str;
@@ -54,6 +30,8 @@ static char				*ft_preparsing(char **str, char **ref_s)
 		sign = -1;
 	if (*tmp == '-' || *tmp == '+')
 		tmp += 1;
+	if (*tmp < '0' || *tmp > '9')
+		return (NULL);
 	while (*tmp == '0')
 		tmp += 1;
 	*ref_s = tmp;
@@ -63,10 +41,10 @@ static char				*ft_preparsing(char **str, char **ref_s)
 	return ("2147483647");
 }
 
-static t_bool			ft_pattern_recognition(char **str)
+static t_bool	ft_pattern_recognition(char **str)
 {
-	char				*ref_s;
-	char				*xtrem_s;
+	char	*ref_s;
+	char	*xtrem_s;
 
 	if ((xtrem_s = ft_preparsing(str, &ref_s)) == NULL)
 		return (FALSE);
@@ -92,8 +70,10 @@ static long		ft_str_validity_checking(char *str)
 		if (ft_auth_char(*str) == L_FALSE)
 			return (L_FALSE);
 		else
+		{
 			if (ft_pattern_recognition(&str) == FALSE)
 				return (L_FALSE);
+		}
 	}
 	return (L_TRUE);
 }

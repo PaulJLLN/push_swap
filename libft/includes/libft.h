@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:00:10 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/25 11:37:16 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/28 16:29:08 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,4 +142,6 @@ int					ft_digit(long nb);
 void				ft_print_char(char c, int len);
 char				*ft_strpdupf(char *src, char c, char **rest);
 void				ft_lst_free(t_list **head);
+size_t				ft_number_move_str(char **str);
+int					ft_number_len_str(char *str);
 #endif
