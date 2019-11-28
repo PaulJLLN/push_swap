@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 10:31:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/25 12:24:12 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/11/26 09:55:19 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int				ft_number_len_str(char *str)
 	int			i;
 
 	i = 0;
+	ft_putendl(str);
 	if (str[i] == '-')
 		i += 1;
 	while (ft_is_number(str[i]) == L_TRUE)
@@ -73,7 +74,7 @@ static t_bool			ft_pattern_recognition(char **str)
 		return (FALSE);
 	if (ft_number_len_str(ref_s) < ft_number_len_str(xtrem_s))
 		return (ft_number_move_str(str));
-	while (ft_is_number(*ref_s) == TRUE)
+	while (ft_is_number(*ref_s) == L_TRUE)
 		if (*(ref_s++) > *(xtrem_s++))
 			return (FALSE);
 	if (ft_is_whitespace(*ref_s) == FALSE && *ref_s != 0)
@@ -107,10 +108,7 @@ char			**ft_argument_validity_checking(char **array)
 	while (array[idx] != NULL)
 	{
 		if (ft_str_validity_checking(array[idx]) == L_FALSE)
-		{
-			ft_putendl(array[idx]);
 			return (NULL);
-		}
 		idx += 1;
 	}
 	return (array);
