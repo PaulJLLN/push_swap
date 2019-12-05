@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_argument_validity_checking.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 10:31:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/28 16:54:57 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/05 18:24:11 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,15 @@ static t_bool	ft_pattern_recognition(char **str)
 	if (ft_number_len_str(ref_s) > ft_number_len_str(xtrem_s))
 		return (FALSE);
 	if (ft_number_len_str(ref_s) < ft_number_len_str(xtrem_s))
-		return (ft_number_move_str(str));
+	{
+		ft_number_move_str(str);
+		return (**str == 0 ? TRUE : FALSE);
+	}
 	while (ft_is_number(*ref_s) == L_TRUE)
+	{
 		if (*(ref_s++) > *(xtrem_s++))
 			return (FALSE);
+	}
 	if (ft_is_whitespace(*ref_s) == FALSE && *ref_s != 0)
 		return (FALSE);
 	*str = ref_s;
