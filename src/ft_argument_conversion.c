@@ -6,7 +6,7 @@
 /*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 12:44:41 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/06 17:37:04 by paul             ###   ########.fr       */
+/*   Updated: 2019/12/06 17:52:20 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ long			*ft_argument_conversion(char **array)
 		n_tab[i] = ft_atoi(array[i]);
 		i += 1;
 	}
+	ft_del_array(array);
 	if (ft_duplicate(n_tab, len) == FALSE)
 		return (NULL);
-	ft_del_array(array);
 	return (n_tab);
 }
