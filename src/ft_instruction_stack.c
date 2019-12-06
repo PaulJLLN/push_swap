@@ -6,7 +6,7 @@
 /*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:13:09 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/06 23:10:18 by paul             ###   ########.fr       */
+/*   Updated: 2019/12/06 23:55:33 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_slide(t_stack *stack, int direction)
 		return ;
 	if (direction == DOWN && stack->n_elem > 0)
 	{
-		i = stack->n_elem - 1;
+		i = stack->n_elem - 2;
 		while (i >= 0)
 		{
 			stack->stack[i + 1] = stack->stack[i];
