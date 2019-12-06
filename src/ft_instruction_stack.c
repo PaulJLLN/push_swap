@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_instruction_stack.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:13:09 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/13 11:03:45 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/06 20:04:56 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_slide(t_stack *stack, int direction)
 		return ;
 	if (direction == DOWN && stack->n_elem > 0)
 	{
-		i = stack->n_elem - 1;
+		i = stack->n_elem - 2;
 		while (i >= 0)
 		{
 			stack->stack[i + 1] = stack->stack[i];
@@ -91,8 +91,8 @@ void		ft_rotate(t_stack *stack, int direction, t_list **array)
 		ft_slide(stack, DOWN);
 		stack->stack[0] = tmp;
 		if (stack->no == 'A')
-			ft_lst_push_back(array, "rra", 2);
+			ft_lst_push_back(array, "rra", 3);
 		else if (stack->no == 'B')
-			ft_lst_push_back(array, "rrb", 2);
+			ft_lst_push_back(array, "rrb", 3);
 	}
 }
