@@ -6,7 +6,7 @@
 /*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:01:06 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/06 19:44:10 by paul             ###   ########.fr       */
+/*   Updated: 2019/12/06 19:59:48 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_free_all(t_stack *a, t_stack *b, t_list **list)
 	a->no = 0;
 	b->n_elem = 0;
 	b->no = 0;
-	ft_lst_del(list);
+	ft_lst_free(list);
 }
 
 int			main(int ac, char **av)
@@ -47,7 +47,6 @@ int			main(int ac, char **av)
 	a.n_elem = ft_array_len(tmp);
 	if (!(a.stack = ft_argument_conversion(tmp)))
 	{
-		ft_del_array(tmp);
 		return (ft_error());
 	}
 	if (!(b.stack = (long *)malloc(sizeof(long) * a.n_elem)))
@@ -56,6 +55,6 @@ int			main(int ac, char **av)
 		b.stack[i++] = NULL_VALUE;
 	ft_divide_stack_a(&a, &b, &list, a.n_elem);
 	ft_print_lst(list);
-	ft_free_all(&a, &b);
+	ft_free_all(&a, &b, &list);
 	return (0);
 }
