@@ -6,7 +6,7 @@
 /*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 10:31:16 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/05 18:24:11 by paul             ###   ########.fr       */
+/*   Updated: 2019/12/06 17:59:24 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,10 @@ char			**ft_argument_validity_checking(char **array)
 	while (array[idx] != NULL)
 	{
 		if (ft_str_validity_checking(array[idx]) == L_FALSE)
+		{
+			ft_del_array(array);
 			return (NULL);
+		}
 		idx += 1;
 	}
 	return (array);
