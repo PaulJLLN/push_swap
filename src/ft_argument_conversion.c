@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_argument_conversion.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
+/*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 12:44:41 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/13 10:43:59 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:37:04 by paul             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ static int		ft_duplicate(long *n_tab, int len)
 		while (j < len)
 		{
 			if (tmp == n_tab[j])
+			{
+				ft_n_tab_del(n_tab, (size_t)len);
 				return (FALSE);
+			}
 			j += 1;
 		}
 		i += 1;
