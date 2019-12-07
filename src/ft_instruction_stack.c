@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:13:09 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 16:06:01 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 17:21:01 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	ft_slide(t_stack *stack, int direction)
 	int		i;
 
 	i = 0;
-	if (!stack || !stack->stack)
+	if (!stack || !stack->stack || stack->n_elem == 0)
 		return ;
 	if (direction == DOWN && stack->n_elem > 0)
 	{
@@ -75,7 +75,7 @@ void		ft_rotate(t_stack *stack, int direction, t_list **array)
 {
 	int		tmp;
 
-	if (direction == UP)
+	if (direction == UP && stack->n_elem != 0)
 	{
 		tmp = stack->stack[0];
 		ft_slide(stack, UP);
@@ -85,7 +85,7 @@ void		ft_rotate(t_stack *stack, int direction, t_list **array)
 		else if (stack->no == 'B' && array)
 			ft_lst_push_back(array, "rb", 2);
 	}
-	else if (direction == DOWN)
+	else if (direction == DOWN && stack->n_elem != 0)
 	{
 		tmp = stack->stack[stack->n_elem - 1];
 		stack->stack[stack->n_elem - 1] = NULL_VALUE;
