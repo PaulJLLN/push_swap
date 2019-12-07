@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_checker.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paul <paul@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 08:57:03 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/06 20:34:41 by paul             ###   ########.fr       */
+/*   Updated: 2019/12/07 14:31:24 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ft_free_all(t_stack *a, t_list **array_ref)
 	ft_lst_free(array_ref);
 	array_ref = NULL;
 }
-#include <stdio.h>
+
 int			main(int ac, char **av)
 {
 	t_list	*list;

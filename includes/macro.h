@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 13:36:27 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/28 16:26:12 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 14:28:20 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 # define MACRO_H
 
-# define L_FALSE (long)-9223372036854775806
-# define L_TRUE (long)9223372036854775806
+# define L_FALSE -9223372036854775806L
+# define L_TRUE 9223372036854775806L
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define TRUE 1

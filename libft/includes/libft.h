@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 09:00:10 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/28 16:29:08 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 14:29:38 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 # define LIBFT_H
 # include <string.h>
 
-# define L_FALSE (long)-9223372036854775806
-# define L_TRUE (long)9223372036854775806
+# define L_FALSE -9223372036854775806L
+# define L_TRUE 9223372036854775806L
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define TRUE 1
