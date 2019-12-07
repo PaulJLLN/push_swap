@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 10:53:20 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 17:15:43 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 18:40:21 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ static char	**ft_instruction_set_gen(void)
 long		ft_instruction_validity_checking(t_list *list)
 {
 	char	**instruction_set;
+	t_list	*head;
 
+	head = list;
 	instruction_set = ft_instruction_set_gen();
 	while (list != NULL)
 	{
@@ -44,7 +46,7 @@ long		ft_instruction_validity_checking(t_list *list)
 		== L_FALSE)
 		{
 			ft_del_array(instruction_set);
-			ft_lst_free(&list);
+			ft_lst_free(&head);
 			return (L_FALSE);
 		}
 		list = list->next;

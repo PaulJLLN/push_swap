@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 08:57:03 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 18:06:40 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 18:29:54 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int			main(int ac, char **av)
 	if (!(list = ft_instruction_recovering(0)))
 	{
 		ft_n_tab_del(a.stack, a.n_elem);
-		ft_lst_free(&list);
+//		ft_lst_free(&list);
 		return (ft_error());
 	}
 	ft_apply_instruction(&a, &b, list);
