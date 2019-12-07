@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 08:57:03 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 17:59:54 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 18:06:40 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int			main(int ac, char **av)
 		return (ft_error());
 	a.n_elem = ft_array_len(tmp);
 	a.max_malloc = a.n_elem;
+	b.max_malloc = a.n_elem;
 	if (!(a.stack = ft_argument_conversion(tmp)))
 		return (ft_error());
 	if (!(list = ft_instruction_recovering(0)))
