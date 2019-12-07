@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 09:31:30 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/19 09:53:05 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 16:25:01 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,4 @@ void		ft_apply_instruction(t_stack *a, t_stack *b, t_list *list)
 		ft_dispatch_instruction(list->content, a, b);
 		list = list->next;
 	}
-	ft_n_tab_del(b->stack, b->n_elem);
 }

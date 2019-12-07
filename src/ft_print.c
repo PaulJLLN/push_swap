@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 12:27:02 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/23 15:48:34 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 16:25:32 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void		ft_print_result(t_stack a, t_stack b)
 		ft_putendl("KO");
 	else
 		ft_putendl("OK");
+	ft_n_tab_del(b.stack, b.n_elem);
 }
