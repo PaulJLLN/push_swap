@@ -1,7 +1,8 @@
 CHECKER = checker
 PUSH_SWAP = push_swap
 CC = gcc
-CFLAG = -Wall -Werror -Wextra
+CFLAG = -Wall -Werror -Wextra -g3
+CFLAG += -fsanitize=address,undefined
 LIB = libft/libft.a
 
 
@@ -18,7 +19,6 @@ SRC =	ft_advanced_sort.c \
 		ft_instruction_stack.c \
 		ft_instruction_validity_checking.c \
 		ft_power.c \
-		ft_print_stack.c \
 		ft_reverse_advanced_sort.c \
 		ft_reverse_basic_sort.c \
 		ft_set_stat.c \

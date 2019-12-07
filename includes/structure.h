@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/15 19:09:14 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/13 11:00:30 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 15:56:53 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ typedef struct		s_stack
 {
 	long			*stack;
 	int				n_elem;
+	int				max_malloc;
 	char			no;
 	long			min;
 	long			max;

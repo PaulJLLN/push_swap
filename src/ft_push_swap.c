@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:01:06 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 14:44:07 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 15:59:54 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,12 @@ int			main(int ac, char **av)
 	if (!(tmp = ft_argument_recovering(av + 1, ac - 1)))
 		return (ft_error());
 	a.n_elem = ft_array_len(tmp);
+	a.max_malloc = a.n_elem;
 	if (!(a.stack = ft_argument_conversion(tmp)))
 		return (ft_error());
 	if (!(b.stack = (long *)malloc(sizeof(long) * a.n_elem)))
 		return (0);
+	b.max_malloc = a.max_malloc;
 	while (i < a.n_elem)
 		b.stack[i++] = NULL_VALUE;
 	ft_divide_stack_a(&a, &b, &list, a.n_elem);
