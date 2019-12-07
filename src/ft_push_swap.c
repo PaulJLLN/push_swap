@@ -6,12 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 11:01:06 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 15:59:54 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 17:59:25 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+#include <stdio.h>
 void		ft_init_stack(t_stack *stack, char c)
 {
 	stack->stack = NULL;

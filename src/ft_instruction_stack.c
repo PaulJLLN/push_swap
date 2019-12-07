@@ -6,12 +6,12 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 12:13:09 by pauljull          #+#    #+#             */
-/*   Updated: 2019/12/07 17:21:01 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 18:00:56 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
+#include <stdio.h>
 void		ft_swap(t_stack *stack, int idx_1, int idx_2, t_list **array)
 {
 	int		tmp;
@@ -32,7 +32,7 @@ static void	ft_slide(t_stack *stack, int direction)
 	int		i;
 
 	i = 0;
-	if (!stack || !stack->stack || stack->n_elem == 0)
+	if (!stack || !stack->stack)
 		return ;
 	if (direction == DOWN && stack->n_elem > 0)
 	{
@@ -75,7 +75,9 @@ void		ft_rotate(t_stack *stack, int direction, t_list **array)
 {
 	int		tmp;
 
-	if (direction == UP && stack->n_elem != 0)
+	if (stack->n_elem == 0)
+		return ;
+	if (direction == UP)
 	{
 		tmp = stack->stack[0];
 		ft_slide(stack, UP);
@@ -85,7 +87,7 @@ void		ft_rotate(t_stack *stack, int direction, t_list **array)
 		else if (stack->no == 'B' && array)
 			ft_lst_push_back(array, "rb", 2);
 	}
-	else if (direction == DOWN && stack->n_elem != 0)
+	else if (direction == DOWN)
 	{
 		tmp = stack->stack[stack->n_elem - 1];
 		stack->stack[stack->n_elem - 1] = NULL_VALUE;
