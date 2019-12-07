@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 10:53:20 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/16 15:33:17 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 17:15:43 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ long		ft_instruction_validity_checking(t_list *list)
 	{
 		if (ft_array_elem_cmp(list->content, instruction_set)
 		== L_FALSE)
+		{
+			ft_del_array(instruction_set);
+			ft_lst_free(&list);
 			return (L_FALSE);
+		}
 		list = list->next;
 	}
 	ft_del_array(instruction_set);
