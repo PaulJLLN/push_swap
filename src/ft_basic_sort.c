@@ -6,7 +6,7 @@
 /*   By: pauljull <pauljull@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 09:27:27 by pauljull          #+#    #+#             */
-/*   Updated: 2019/11/23 13:11:53 by pauljull         ###   ########.fr       */
+/*   Updated: 2019/12/07 16:20:23 by pauljull         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	ft_five_elem_sort(t_stack *a, t_stack *b, t_list **array)
 
 void	ft_basic_sort(t_stack *a, t_stack *b, t_list **array)
 {
+	if (ft_sorted_list_checking(a->stack, a->n_elem) == TRUE)
+		return ;
 	if (a->n_elem == 2)
 		if (a->stack[0] > a->stack[1])
 			ft_swap(a, 0, 1, array);
